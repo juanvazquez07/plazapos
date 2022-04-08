@@ -17,4 +17,16 @@ class CategoryController extends Controller
         
         return Inertia::render('Categories/Index', ['categories'=>$categories]);
     }
+
+    public function create(){
+        return Inertia::render('Categories/Create');
+    }
+
+    public function store(){
+        Category::create([
+            'name' => Request::input('name'),
+        ]);
+        
+        return Redirect::route('categories.index');
+    }
 }

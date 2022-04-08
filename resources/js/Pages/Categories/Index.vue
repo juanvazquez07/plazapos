@@ -77,7 +77,7 @@ const props = defineProps({
         <div class="py-5">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-end m-2 p-2">
-                    <Link class="px-4 py-2 bg-indigo-500 hover:bg-indigo text-white rounded" href="/brands/create">Create</Link>
+                    <Link class="px-4 py-2 bg-indigo-500 hover:bg-indigo text-white rounded" href="/categories/create">Create</Link>
                 </div>
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
