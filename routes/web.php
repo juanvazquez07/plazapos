@@ -40,16 +40,17 @@ Route::get('/products/{product}/increment', [ProductController::class, 'incremen
 
 Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
 Route::get('/brands/{brand}/edit', [BrandController::class, 'edit'])->name('brands.edit');
-Route::delete('/brands/{product}', [BrandController::class, 'destroy'])->name('brands.destroy');
+Route::delete('/brands/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
 Route::get('/brands/create', [BrandController::class, 'create'])->name('brands.create');
 Route::post('/brands', [BrandController::class, 'store'])->name('brands.store');
 Route::put('/brands/{brand}', [BrandController::class, 'update'])->name('brands.update');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{brand}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::delete('/categories/{product}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 
 Route::get('/sales', [SaleController::class, 'procces'])->name('sales.procces');
 

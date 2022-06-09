@@ -30,4 +30,18 @@ class CategoryController extends Controller
         
         return Redirect::route('categories.index');
     }
+
+    public function edit(Category $category){
+        //dd($brand->name);
+        return Inertia::render('Categories/Edit',['category'=>$category]);
+    }
+
+    public function update(Category $category){
+
+        //dd(Request::input('name'));
+        $category->update([
+            'name' => Request::input('name'),
+        ]);
+        return Redirect::route('categories.index');
+    }
 }
