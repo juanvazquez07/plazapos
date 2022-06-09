@@ -21429,7 +21429,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-linejoin": "round"
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "mx-4 font-medium"
-}, "Settings")], -1
+}, "Settings_prueva")], -1
 /* HOISTED */
 );
 

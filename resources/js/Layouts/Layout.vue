@@ -65,7 +65,7 @@
                                 <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
 
-                                <span class="mx-4 font-medium">Settings</span>
+                                <span class="mx-4 font-medium">Settings_prueva</span>
                             </a>                      
                         </nav>
                     </div>
