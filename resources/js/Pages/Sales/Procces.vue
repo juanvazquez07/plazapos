@@ -1,18 +1,25 @@
+<script setup>
+    import BaseLayout from '@/Layouts/Layout.vue';
+    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { ref } from 'vue'
+</script>
 <template>
     <BaseLayout>
-        <div class="relative mr-6 my-2">
-            <input type="search" class="bg-purple-white shadow rounded border-0 p-3" placeholder="Search by name...">
-            <div class="absolute pin-r pin-t mt-3 mr-4 text-purple-lighter">
-                <svg version="1.1" class="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
-                    <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
-                    c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
-                    C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
-                    S32.459,40,21.983,40z"/>
-
-                </svg>
-
+        <div class="relative mr-6 my-2 font-light bg-white dark:bg-gray-900 text-white p-10">
+            <div class="flex">
+                <div class="relative mt-6 flex-auto">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                    <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Search"/>
+                </div>
+                <div class="flex-initial w-64 text-black">
+                    <h1>Hola</h1>
+                </div>
             </div>
+            
         </div>
     </BaseLayout>
 </template>
