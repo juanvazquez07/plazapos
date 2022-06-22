@@ -54,6 +54,7 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 
 Route::get('/sales', [SaleController::class, 'procces'])->name('sales.procces');
+Route::get('/sales', [SaleController::class, 'getProducts']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

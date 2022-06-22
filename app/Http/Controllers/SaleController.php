@@ -11,4 +11,10 @@ class SaleController extends Controller
     public function procces(){
         return Inertia::render('Sales/Procces');
     }
+
+    public function getProducts(Request $request)
+    {
+        $data = Product::where('name', 'LIKE','%'.$request->keyword.'%')->get();
+        return response()->json($data); 
+    }
 }
