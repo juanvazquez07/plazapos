@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Sale;
+use App\Models\Product;
 
 class SaleController extends Controller
 {
@@ -14,7 +15,15 @@ class SaleController extends Controller
 
     public function getProducts(Request $request)
     {
+        //dd("si llego al controlador");
         $data = Product::where('name', 'LIKE','%'.$request->keyword.'%')->get();
-        return response()->json($data); 
+        //$data=$request->keyword;
+        //return back()->with('data');
+        //return Inertia::render('Sales/Procces',['data' => $data]);
+        return response()->json($data);
+    }
+
+    public function prueba(){
+        dd("hola mundo");
     }
 }

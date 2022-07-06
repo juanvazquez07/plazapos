@@ -28,6 +28,9 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/busca', [SaleController::class, 'prueba'])->name('sales.prueba');
+Route::get('/getproducts', [SaleController::class, 'getProducts'])->name('sales.getproducts');
+
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
@@ -54,7 +57,7 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 
 Route::get('/sales', [SaleController::class, 'procces'])->name('sales.procces');
-Route::get('/sales', [SaleController::class, 'getProducts']);
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

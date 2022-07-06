@@ -1,21 +1,98 @@
 <script setup>
     import BaseLayout from '@/Layouts/Layout.vue';
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    //import route from 'vendor/tightenco/ziggy/src/js';
     import { ref } from 'vue'
+
+     function prueba() {
+      Inertia.get('/busca')
+    }
 </script>
+
+<script>
+import {Inertia} from '@inertiajs/inertia';
+    
+export default {
+    
+    data() {
+        return {
+            keyword: null,
+            Products: []
+        };
+    },
+    watch: {
+        keyword(after, before) {
+            //console.log("capturando");
+            this.getResults();
+        }
+    },
+    methods: {
+        getResults() {
+            console.log(this.keyword);
+            /*Inertia.get('/getproducts', {
+                keyword: this.keyword
+            })*/
+            //route('sales.prueba');
+            /*axios.get('/getproducts', { params: { keyword: this.keyword } })
+            .then(function (response) {
+                
+                var keys = Object.keys(response);
+                keys.forEach(function(key){
+                    this.prods.push(response[key]);
+                });
+                //this.Products.push(response);
+                console.log(this.prods);
+            })
+            .catch(error => {});*/
+            return axios.get('/getproducts', { params: { keyword: this.keyword } })
+                .then(res => this.Products = res.data)
+                .catch(error => {});
+            //console.log(this.Products[0])
+        }
+    }
+   
+}
+</script>
+
 <template>
     <BaseLayout>
         <div class="relative mr-6 my-2 font-light bg-white dark:bg-gray-900 text-white p-8">
+            <Link :href="route('sales.prueba')">Create User</Link>
+            <button @click="" class="text-red-600">prueba</button>
             <div class="flex">
-                <div class="relative flex-auto pr-2">
-                    <div class="mr-36">
-                        
-                        <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Buscar o escanear codigo"/>
+                <div class="relative flex-auto pr-2 w-7/12">
+                    <div class="mr-1/12 text-black">
+                        <input type="text" v-model="keyword" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Buscar o escanear codigo"/>
+                        <ul class="flex gap-x-4" v-if="this.Products.length > 0">
+                            <li  v-for="product in this.Products" :key="product.id">
+                                <div class="group relative">
+                                    <h1>{{product.name}}</h1>
+                                    <a :href="'storage/'+product.image"><img :src="'storage/'+product.image" class=" object-cover w-32 h-28 rounded"></a>
+                                </div>  
+                            </li>
+                        </ul>
+                        <!--<div class="group relative">
+        <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+          <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+        </div>
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-sm text-gray-700">
+              <a href="#">
+                <span aria-hidden="true" class="absolute inset-0"></span>
+                Basic Tee
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">Black</p>
+          </div>
+          <p class="text-sm font-medium text-gray-900">$35</p>
+        </div>
+      </div>-->
                     </div>
                     
                     <!--<img src="/Images/scanner.png" width="50" height="60">-->
                 </div>
-                <div class="container mx-auto shadow-md flex-auto w-80 text-black divide-y-[3px] p-2">
+                <div class="w-5/12 container mx-auto shadow-md flex-auto text-black divide-y-[3px] p-2">
                     <div>
                         <h1 class="text-center">Carrito</h1>
                     </div>
