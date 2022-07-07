@@ -61,13 +61,26 @@ export default {
             <button @click="" class="text-red-600">prueba</button>
             <div class="flex">
                 <div class="relative flex-auto pr-2 w-7/12">
-                    <div class="mr-1/12 text-black">
+                    <div class="mr-10 text-black">
                         <input type="text" v-model="keyword" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Buscar o escanear codigo"/>
-                        <ul class="flex gap-x-4" v-if="this.Products.length > 0">
+                        <ul class="flex grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" v-if="this.Products.length > 0">
                             <li  v-for="product in this.Products" :key="product.id">
                                 <div class="group relative">
-                                    <h1>{{product.name}}</h1>
-                                    <a :href="'storage/'+product.image"><img :src="'storage/'+product.image" class=" object-cover w-32 h-28 rounded"></a>
+                                    <a href="">
+                                        <div><img :src="'storage/'+product.image" class=" object-cover w-32 h-28 rounded"></div>
+                                        <div>
+                                            <div>
+                                                <h3 class="text-sm text-gray-700">
+                                                <a href="#">
+                                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                                    {{product.name}}
+                                                </a>
+                                                </h3>
+                                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                                            </div>
+                                            <p class="text-sm font-medium text-gray-900">$35</p>
+                                        </div>
+                                    </a>
                                 </div>  
                             </li>
                         </ul>
